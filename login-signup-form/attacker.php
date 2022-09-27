@@ -134,7 +134,7 @@ body {
 <body>
 
 <div class="container">
-  <h2>Cards Information</h2>
+  <h2>Users Information</h2>
   <ul class="responsive-table">
   <li class="table-header">
       <div class="col col-1">ID</div>

@@ -1,9 +1,12 @@
 <?php ob_start(); ?>
 <!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-<title>Login</title>
-<link rel="stylesheet" href="css/style.css" />
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="assets/1ab94d0eba.js" crossorigin="anonymous"></script>
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <?php
@@ -27,22 +30,49 @@ and password='$password'";
             // Redirect user to index.php
 	    header("Location: index.php");
          }else{
-	echo "<div class='form'>
+	echo "<div class='form' style='color:white;'>
 <h3>Username/password is incorrect.</h3>
 <br/>Click here to <a href='login.php'>Login</a></div>";
 	}
     }else{
 ?>
-<div class="form" >
-<h1>Log In</h1>
-<form action="" method="post" name="login">
-<input type="text" name="username" placeholder="Username" required />
-<input type="password" name="password" placeholder="Password" required />
-<br>
-<input name="submit" type="submit" value="Login" />
-</form>
-<p>Not registered yet? <a href='registration.php'>Register Here</a></p>
-</div>
-<?php } ?>
+    <main class="container">
+        <h2>Login</h2>
+        <form action="" method="post">
+            <div class="input-field">
+                <input type="text" name="username" id="username"
+                    placeholder="Enter Your Username">
+                <div class="underline"></div>
+            </div>
+            <div class="input-field">
+                <input type="password" name="password" id="password"
+                    placeholder="Enter Your Password">
+                <div class="underline"></div>
+            </div>
+
+            <input type="submit" value="Continue">
+            <p>Not registered yet? <a href='registration.php'>Register Here</a></p>
+
+        </form>
+
+        <!-- <div class="footer">
+            <span>Or Connect With Social Media</span>
+            <div class="social-fields">
+                <div class="social-field twitter">
+                    <a href="#">
+                        <i class="fab fa-twitter"></i>
+                        Sign in with Twitter
+                    </a>
+                </div>
+                <div class="social-field facebook">
+                    <a href="#">
+                        <i class="fab fa-facebook-f"></i>
+                        Sign in with Facebook
+                    </a>
+                </div>
+            </div> -->
+        </div>
+    </main>
+    <?php } ?>
 </body>
 </html>

@@ -10,6 +10,7 @@ exit(); }
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
 <style>
 body {
   font-family: Arial;
@@ -51,7 +52,7 @@ body {
 
 <div class="outer">
     <div class="middle">
-      <div class="inner">
+      <div class="inner" style='color:white;'>
         <h1>Welcome</h1>
         <h5>You have been logged in successfully</h5>
       </div>
