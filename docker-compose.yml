@@ -1,0 +1,78 @@
+version: '3.8'
+services:
+    php-apache-register:
+        container_name: php-apache-register
+        build:
+            context: ./login-signup-form/
+            dockerfile: Dockerfile
+        depends_on:
+            - db
+        volumes:
+            - ./login-signup-form/:/var/www/html/
+            - ./login-signup-form/domain.crt:/etc/ssl/certs/mycert.crt
+            - ./login-signup-form/domain.key:/etc/ssl/private/mycert.key
+        ports:
+            - 8000:80
+            - 8443:443
+
+    php-apache-store:
+        container_name: php-apache-store
+        build:
+            context: ./checkout/
+            dockerfile: Dockerfile
+        depends_on:
+            - db1
+        volumes:
+            - ./checkout/:/var/www/html/
+            - ./checkout/domain.crt:/etc/ssl/certs/mycert.crt
+            - ./checkout/domain.key:/etc/ssl/private/mycert.key
+        ports:
+            - 9000:80
+            - 9443:443
+
+    db:
+        container_name: db
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: rootuser
+            MYSQL_DATABASE: accounts
+            MYSQL_USER: user
+            MYSQL_PASSWORD: userpass
+        ports:
+            - "9906:3306"
+        volumes:
+            - ./sql-login:/docker-entrypoint-initdb.d
+      
+    db1:
+        container_name: db1
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: rootuser
+            MYSQL_DATABASE: store
+            MYSQL_USER: user
+            MYSQL_PASSWORD: userpass
+        ports:
+            - "9907:3306"
+        volumes:
+            - ./sql-store:/docker-entrypoint-initdb.d
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - '8080:80'
+        restart: always
+        environment:
+            PMA_HOST: db
+        depends_on:
+            - db
+    phpmyadmin1:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - '8090:80'
+        restart: always
+        environment:
+            PMA_HOST: db1
+        depends_on:
+            - db1
