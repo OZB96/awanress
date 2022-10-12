@@ -18,9 +18,9 @@ services:
             - ./login-signup-form/:/var/www/html/
             - ./login-signup-form/domain.crt:/etc/ssl/certs/mycert.crt
             - ./login-signup-form/domain.key:/etc/ssl/private/mycert.key
-        ports:
-            - 8000:80
-            - 8443:443
+        # ports:
+        #     - 8000:80
+        #     - 8443:443
 
     php-apache-store:
         container_name: php-apache-store
@@ -33,9 +33,9 @@ services:
             - ./checkout/:/var/www/html/
             - ./checkout/domain.crt:/etc/ssl/certs/mycert.crt
             - ./checkout/domain.key:/etc/ssl/private/mycert.key
-        ports:
-            - 9000:80
-            - 9443:443
+        # ports:
+            # - 9000:80
+            # - 9443:443
 
     db:
         container_name: db
