@@ -1,0 +1,11 @@
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = csawarenessleague.com
+DNS.2 = login.csawarenessleague.com
+DNS.3 = checkout.csawarenessleague.com
+DNS.4 = localhost
+DNS.5 = 127.0.0.1
+IP.1 = 127.0.0.1 

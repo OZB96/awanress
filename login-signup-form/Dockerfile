@@ -1,5 +1,4 @@
 FROM php:8.0-apache
-# 
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli && docker-php-ext-install pdo_mysql
 WORKDIR /var/www/html
 RUN a2enmod rewrite && a2enmod ssl && a2enmod socache_shmcb

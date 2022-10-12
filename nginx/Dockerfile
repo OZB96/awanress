@@ -8,3 +8,4 @@ COPY ./backend-not-found.html /var/www/html/backend-not-found.html
 
 # Proxy configurations
 COPY ./includes/ /etc/nginx/includes/
+COPY ./ssl/ /etc/nginx/ssl/
