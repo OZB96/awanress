@@ -6,6 +6,9 @@ services:
         ports:
             - 80:80
             - 443:443
+        depends_on:
+            - php-apache-register
+            - php-apache-store
 
     php-apache-register:
         container_name: php-apache-register
