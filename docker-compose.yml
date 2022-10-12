@@ -1,5 +1,14 @@
 version: '3.8'
 services:
+
+    proxy:
+        build: ./nginx/
+        # networks:
+        #     - site1
+        #     - site2
+        ports:
+            - 80:80
+            - 433:433
     php-apache-register:
         container_name: php-apache-register
         build:
@@ -67,6 +76,7 @@ services:
             PMA_HOST: db
         depends_on:
             - db
+
     phpmyadmin1:
         image: phpmyadmin/phpmyadmin
         ports:
